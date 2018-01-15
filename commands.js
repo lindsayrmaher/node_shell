@@ -23,9 +23,15 @@ module.exports = {
 
 	},
 
-	echo: function() {
-		var returnString = cmd.slice(1).join(" ");
-		process.stdout.write(returnString);
+	echo: function(args) {
+		var output = args
+		.split(" ")
+		.map(function (arg) {
+			return (arg[0] === '$') ? process.env[arg.slice(1)] : arg;
+		})
+		.join(" ");
+		process.stdout.write(output);
+		process.stdout.write("prompt > ");
 
 	},
 }

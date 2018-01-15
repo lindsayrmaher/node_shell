@@ -12,22 +12,25 @@ process.stdin.on('data', function (data) {
 	// var output;
 	// var args = Array.prototype.slice.call(arguments);
 	// console.log(args);
-	var cmd = data.toString().trim().split(" ");
+
+	var tokens = data.toString().trim().split(" ");
+	var cmd = tokens[0];
+	var args = tokens.slice(1).join(" ");
 	// console.log(cmd);
-		if(cmd[0] === 'pwd') {
-			commands[cmd[0]]();
+		if(cmd === 'pwd') {
+			commands[cmd]();
 		} 
 	
-		if(cmd[0] === 'date') {
-			commands[cmd[0]]();
+		if(cmd === 'date') {
+			commands[cmd]();
 		}
 
-		if(cmd[0] === 'ls') {
-			commands[cmd[0]]();
+		if(cmd === 'ls') {
+			commands[cmd]();
 		}
 
-		if(cmd[0] === 'echo') {
-			commands[cmd[0]]();
+		if(cmd === 'echo') {
+			commands[cmd]();
 		}
 	// process.stdout.write(output);
 	process.stdout.write('\n prompt > ');
