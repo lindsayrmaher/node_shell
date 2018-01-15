@@ -22,6 +22,12 @@ module.exports = {
 		});
 
 	},
+
+	echo: function() {
+		var returnString = cmd.slice(1).join(" ");
+		process.stdout.write(returnString);
+
+	},
 }
 
 
