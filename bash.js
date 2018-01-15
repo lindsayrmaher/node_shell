@@ -18,6 +18,10 @@ process.stdin.on('data', function (data) {
 	if(cmd === 'date') {
 		commands[cmd]();
 	}
+
+	if(cmd === 'ls') {
+		commands[cmd]();
+	}
 	// process.stdout.write(output);
 	process.stdout.write('\n prompt > ');
 });
