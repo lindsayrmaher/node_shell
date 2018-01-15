@@ -1,15 +1,23 @@
+var commands = require('./commands.js');
+
+// var userCommand = 'pwd'; 
+
+
 process.stdout.write('prompt > ');
+// console.log('commands[userCommand]', commands[userCommand])
+// commands[userCommand](data); 
 
 process.stdin.on('data', function (data) {
 	// console.log(process.cwd());
-	var output;
+	// var output;
 	var cmd = data.toString().trim();
 	if(cmd === 'pwd') {
-		output = process.cwd();
-	}
+		commands[cmd]();
+	} 
+	
 	if(cmd === 'date') {
-		output = new Date().toString();
+		commands[cmd]();
 	}
-	process.stdout.write(output);
-	process.stdout.write('/n prompt > ');
+	// process.stdout.write(output);
+	process.stdout.write('\n prompt > ');
 });
